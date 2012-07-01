@@ -5,3 +5,5 @@ django-debug-toolbar
 django-pagination
 psycopg2
 django-tastypie
+xlrd
+
