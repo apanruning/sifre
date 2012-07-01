@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title%}Inicie sesión{% endblock %}
+{% block page  %}
+  <h1>Inicie sesión</h1>
+  <form action="/login" method="post" {% if form.errors %}class="error"{% endif %}id="login-form">{% csrf_token %}
+    <input type="hidden" name="next" value="{{next|default:'/'}}">
+    {{form.as_p}}
+    <p class="field"><input type="submit" value="ingresar" /></p>
+  </form>
+  <p>Si no tiene un perfil de usuario puede <a href="/cuentas/register/">crearse una cuenta nueva</a> en pocos pasos</p>
+{% endblock %}

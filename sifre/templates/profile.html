@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% load markup %}
+{% block title %}
+    {{profile}}
+{% endblock %}
+{% block page %}
+<h1 id="profile">
+    <img class="avatar" src="{{profile.logo.url}}" alt="{{profile|slugify}}-logo" width="50" height="50" />
+    <strong class="username">{{profile}}</strong><br />
+    <img src="{{profile.banner.url}}" alt="{{profile|slugify}}-banner" width="790" height="360" /> 
+</h1>
+{% if is_me %}
+    <a href="edit/">Editar mi información personal</a>
+{% endif %}
+
+<h2>{{profile.direccion}} {{profile.email|urlize}}</h2>
+<article>{{profile.biopic|markdown}}</article>
+    <ul>
+        {% for item in pubs%}
+        <li>{% include pub_snippet.html %}</li>
+        {% endfor %}
+    </ul>
+</article>
+{% endblock %}

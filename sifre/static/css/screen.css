@@ -1,0 +1,310 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*base*/
+/* line 2, ../../sass/_reset.scss */
+body {
+  font: 100% "Droid Sans", "Lucida Grande", Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 7, ../../sass/_reset.scss */
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* line 10, ../../sass/_reset.scss */
+a {
+  color: #06C;
+  text-decoration: none;
+}
+
+/* line 14, ../../sass/_reset.scss */
+a:hover {
+  text-shadow: 1px 1px 1px #999;
+}
+
+/* line 17, ../../sass/_reset.scss */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/*layout*/
+/* line 9, ../../sass/screen.scss */
+.clear {
+  display: block;
+  clear: both;
+}
+
+/* line 13, ../../sass/screen.scss */
+header, section, footer, article, menu, nav {
+  display: block;
+}
+
+/* line 16, ../../sass/screen.scss */
+header, section {
+  margin: 1em;
+}
+
+/* line 19, ../../sass/screen.scss */
+section {
+  margin-bottom: 3em;
+}
+
+/* line 22, ../../sass/screen.scss */
+aside {
+  float: right;
+  width: 30%;
+  padding: 1em;
+}
+
+/* line 28, ../../sass/screen.scss */
+menu {
+  float: right;
+  margin: 0;
+}
+
+/* line 32, ../../sass/screen.scss */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  padding: 0.5em 0;
+}
+
+/* line 40, ../../sass/screen.scss */
+footer a {
+  margin: 0.5em 1em;
+}
+
+/* line 43, ../../sass/screen.scss */
+footer p {
+  margin: 0 0.5em;
+}
+
+/*ui*/
+/* line 48, ../../sass/screen.scss */
+.data_column {
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  overflow: hidden;
+  list-style: none;
+}
+
+/* line 55, ../../sass/screen.scss */
+.data_column:hover {
+  cursor: pointer;
+  background: #FFE;
+}
+
+/* line 59, ../../sass/screen.scss */
+.disabled {
+  opacity: 0.5;
+  background: #EBEBEB;
+}
+
+/* line 64, ../../sass/screen.scss */
+.ui-selected {
+  background: #FFE;
+  border: 1px solid #FE0;
+  border-radius: 0.2em;
+}
+
+/* line 71, ../../sass/screen.scss */
+#session {
+  float: none;
+  position: absolute;
+  top: 0;
+  right: 1em;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0px 4px #CCC;
+  padding: 0.25em 0.5em;
+}
+
+/* line 80, ../../sass/screen.scss */
+#list {
+  clear: both;
+}
+
+/* line 84, ../../sass/screen.scss */
+#list li {
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px #333;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+/* line 91, ../../sass/screen.scss */
+#messages {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #CF0;
+  font-size: 80%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  border: 1px solid #FC6;
+}
+
+/* line 104, ../../sass/screen.scss */
+#message li {
+  padding: 0.5em 2em;
+}
+
+/* line 107, ../../sass/screen.scss */
+#messages .control {
+  float: right;
+}
+
+/* line 110, ../../sass/screen.scss */
+#messages .error a {
+  border: 1px solid #900;
+}
+
+/* line 113, ../../sass/screen.scss */
+#messages strong {
+  display: block;
+  white-space: pre-wrap;
+}
+
+/*Forms*/
+/* line 120, ../../sass/screen.scss */
+label {
+  float: left;
+  margin-right: 1em;
+  width: 8em;
+  text-align: right;
+}
+
+/* line 127, ../../sass/screen.scss */
+fieldset p {
+  float: left;
+  margin-right: 1em;
+}
+
+/* line 131, ../../sass/screen.scss */
+fieldset {
+  clear: both;
+}
+
+/* line 137, ../../sass/screen.scss */
+input[type="text"],
+input[type="password"],
+textarea {
+  font: 22px 'Inconsolata', 'Monaco', 'Consolas', monospace;
+  border: 1px solid #40B086;
+  border-radius: 3px;
+}
+
+/* line 145, ../../sass/screen.scss */
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: 1px solid #61851B;
+  border-radius: 3px;
+  box-shadow: 0 0 15px #71D20B;
+  outline: 0;
+}
+
+/* line 151, ../../sass/screen.scss */
+.submit {
+  text-align: right;
+}
+
+/* line 155, ../../sass/screen.scss */
+input[type="submit"],
+a.call {
+  border: 1px solid #61851B;
+  border-radius: 5px;
+  background: #40B086;
+  padding: 5px;
+  margin: 0 -5px;
+  color: #FFF;
+}
+
+/* line 164, ../../sass/screen.scss */
+input[type="submit"]:hover,
+a.call:hover {
+  text-shadow: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px #333;
+}
+
+/* Tabs */
+/* line 173, ../../sass/screen.scss */
+.ui-accordion-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* line 177, ../../sass/screen.scss */
+.ui-tabs-nav {
+  padding: 0 1em;
+  margin: 0;
+}
+
+/* line 181, ../../sass/screen.scss */
+.ui-tabs-nav li {
+  float: right;
+  list-style-type: none;
+}
+
+/* line 186, ../../sass/screen.scss */
+.ui-tabs-nav li a {
+  padding: 2px 1em 0;
+  outline: none;
+}
+
+/* line 190, ../../sass/screen.scss */
+.ui-tabs-selected {
+  border: 1px solid #CCC;
+  border-color: #CCC #CCC #FFF;
+  margin: -5px 0 -1px;
+  padding: 5px 0 0;
+  background: #FFF;
+}
+
+/* line 197, ../../sass/screen.scss */
+.ui-tabs-panel {
+  clear: both;
+  border: 1px solid #CCC;
+  border-color: #CCC #F0F0F0;
+  border-width: 1px 0;
+  background: #FFF;
+  padding: 0 1em;
+}
+
+/* line 206, ../../sass/screen.scss */
+.ui-tabs-hide {
+  display: none;
+}
+
+/* Tablas */
+/* line 213, ../../sass/screen.scss */
+table {
+  margin: 0 -1.1em;
+}
+
+/* line 216, ../../sass/screen.scss */
+th {
+  background: #EEE;
+}
+
+/* line 219, ../../sass/screen.scss */
+td {
+  padding: 0 1em;
+}
+
+/* line 222, ../../sass/screen.scss */
+tr:hover td {
+  background: #EFEFEF;
+}

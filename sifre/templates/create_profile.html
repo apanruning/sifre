@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}
+    Complete su perfil de usuarios
+{% endblock %}
+{% block page %}
+
+<h1>Complete su perfil de usuario</h1>
+    <form action="{% url profile_create username %}" enctype="multipart/form-data" method="post">{% csrf_token%}
+        {{form.as_p}}
+    
+        <p><input type="submit" value="Guardar" /></p>
+    </form>
+{% endblock %}
+

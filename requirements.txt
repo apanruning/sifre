@@ -1,0 +1,6 @@
+Django
+PIL
+distribute
+django-debug-toolbar
+django-pagination
+psycopg2
