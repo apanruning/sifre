@@ -23,7 +23,6 @@ class Fabricante (models.Model):
 	cod_fab = models.SlugField()
 	nombre = models.CharField(max_length=255)
 
-
 class ArticuloFerreteria (models.Model):
 	articulo = models.ForeignKey('Articulo')
 	ferreteria = models.ForeignKey('Ferreteria')

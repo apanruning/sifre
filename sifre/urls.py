@@ -3,13 +3,25 @@
 from django.conf.urls import patterns, include, url
 from django.shortcuts import render
 from django.contrib import admin
+from tastypie.api import Api
+from ferre import api_urls
+from ferre.api import FerreteriaResource, ArticuloFerreteriaResource, ProveedorResource
+
+
+api = Api(api_name = 'v1')
+api.register(FerreteriaResource())
+api.register(ArticuloFerreteriaResource())
+api.register(ProveedorResource())
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^$', 'ferre.views.home', name='home'),
+    url(r'^$', 'ferre.views.home', name='home'),
+)
 
-
+urlpatterns += patterns('',
+    url(r'^api/', include(api.urls)),
 )
 
 urlpatterns += patterns('django.contrib.auth.views',
