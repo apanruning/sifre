@@ -38,19 +38,21 @@ class ArticuloFerreteria (models.Model):
     stock = models.SmallIntegerField(default=0)
     proveedor = models.ManyToManyField('Proveedor')
 
+#este es el articulo que vende una ferreteria
 class ArticuloFerreteriaPublico(models.Model):
     art_ferre = models.ForeignKey('ArticuloFerreteria')
     precio = models.FloatField()
     unidad = models.ForeignKey('Unidad',null=True,blank=True)
 
-class CatalogoProveedor (models.Model):
+class CatalogoProveedor(models.Model):
     cod_cat = models.SlugField()
-    articulo = models.ForeignKey('Articulo')
+    articulo = models.ForeignKey('Articulo',null=True,blank=True)
     proveedor = models.ForeignKey('Proveedor')
     descripcion = models.TextField()
-    precio = models.FloatField()
-    fecha = models.DateField()
     unidad = models.ForeignKey('Unidad',null=True,blank=True)
+    precio = models.FloatField()
+    fecha = models.DateField(auto_now=True, editable=False)
+    
 
 class Unidad(models.Model):
     name = models.CharField(max_length=255)
