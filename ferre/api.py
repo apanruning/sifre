@@ -9,7 +9,7 @@ class FerreteriaResource(ModelResource):
 class ProveedorResource(ModelResource):
 	class Meta:
 		queryset = Proveedor.objects.all()
-		resource_name = 'proveedor'
+        resource_name = 'proveedor'
 
 class ArticuloFerreteriaResource(ModelResource):
 	class Meta:

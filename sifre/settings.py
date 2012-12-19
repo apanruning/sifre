@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 # Django settings for sifre project.
 
 import os
@@ -9,7 +9,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Martin Onetti', 'onetti.martin@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -79,7 +79,6 @@ SECRET_KEY = '!(*d#oo3!mhgb*d$r^b0dxugf4b)s7h5rdq#_c%n*k!3$(@sbu'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,7 +98,6 @@ ROOT_URLCONF = 'sifre.urls'
 WSGI_APPLICATION = 'sifre.wsgi.application'
 
 TEMPLATE_DIRS = (
-    'templates',
     os.path.join(BASE_DIR, 'templates')
 )
 
@@ -119,9 +117,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'debug_toolbar',
     'tastypie',
-    'pagination',
     'sifre',
-    'ferre'
+    'ferre',
+    'frontend',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 2,
