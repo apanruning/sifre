@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from models import Proveedor, Articulo
-from forms import ProveedorNuevoForm
+from forms import ProveedorForm
 import datetime
 
 def home(request):
@@ -30,30 +30,37 @@ def providers_manager(request):
 
 def providers_new(request):
     if request.method == "POST":
-        form = ProveedorNuevoForm(request.POST)
+        form = ProveedorForm(request.POST)
         if form.is_valid():
             obj = form.save()
             return redirect("/providers/new")
-    form = ProveedorNuevoForm()
+    form = ProveedorForm()
     return render(
         request,
         'proveedor_nuevo.html',
         {
-            'form':form,     
+            'form':form,   
+            'current_time':datetime.datetime.now(),  
         }
     )
 
 def providers_edit(request, id):
     provider = Proveedor.objects.get(pk=id)
-    form = ProveedorNuevoForm(instance=provider)
-    import pdb; pdb.set_trace()
-    if form.is_valid():
-        form.save()
+    
+    if request.method == "POST":
+        form = ProveedorForm(request.POST, instance=provider)        
+        if form.is_valid():
+            obj = form.save()
+            return redirect("/providers/"+str(obj.id))
+    form = ProveedorForm(instance=provider) 
+    
     return render(
         request,
         'proveedor_detalle.html',
         {
+            'provider':provider.nombre,
             'form':form,     
+            'current_time':datetime.datetime.now(),
         }
     )
     
