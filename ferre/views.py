@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from models import Proveedor, Articulo
+from models import Proveedor, Articulo, CatalogoProveedor
 from forms import ProveedorForm
 import datetime
 
@@ -15,6 +15,8 @@ def home(request):
         'articles':articles,
         }
 	)
+
+#### INICIO PROVEEDOR ####
 
 def providers_manager(request):
     now = datetime.datetime.now()
@@ -58,9 +60,25 @@ def providers_edit(request, id):
         request,
         'proveedor_detalle.html',
         {
-            'provider':provider.nombre,
+            'provider':provider,
             'form':form,     
             'current_time':datetime.datetime.now(),
         }
     )
+
+def article_provider(request, id):
+    articles = CatalogoProveedor.objects.filter(proveedor=id).order_by('descripcion')
+    provider = Proveedor.objects.get(pk=id)
+    return render(
+        request,
+        'proveedor_ver_articulos.html',
+        {
+            'articles':articles,
+            'current_time':datetime.datetime.now(),
+            'provider':provider,
+        }
+    )
+        
+
+#### FIN PROVEEDOR ####
     

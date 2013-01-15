@@ -3,12 +3,17 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"><h4>Proveedores</h4></li>
-                <li class="active">
+                <li>
                     <a href="/providers/new" >Nuevo </a>
                 </li>
                 <li>
                     <a href="/providers/manager" >Listar </a>
                 </li>
+            </ul>
+          </div><!--/.well -->
+         <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><h4>Acciones</h4></li>
                 <li class="dropdown-submenu">
                     <a tabindex="-1" href="#">Actualizar Precios</a>
                     <ul class="dropdown-menu">
@@ -17,11 +22,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" >Ver Articulos</a>
+                    <a href="/providers/{{provider.id}}/articles" >Ver Articulos</a>
                 </li>              
             </ul>
           </div><!--/.well -->
           {% endblock %}
+          
+
           {% block title-module %}
                DETALLE DE {{ provider.nombre }}
           {% endblock %} 
