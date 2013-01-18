@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>SIFRE - PANEL PRINCIPAL </title>
+    
+    <title>{% block title %}SIFRE - PANEL PRINCIPAL {%endblock%}</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SISTEMA ONLINE DE GESTION DE FERRETERIAS">
     <meta name="author" content="apanruning">
@@ -49,16 +51,31 @@
           {% block sidebar-nav %}
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header"><a href=""><h4>Articulos</h4></a></li>
-                <li>
-                    <a href="#" >Nuevo </a>
+              <li class="nav-header"><h4>Articulos</h4></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Nuevo Articulo</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/providers/articles/new/"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" >Listar </a>
                 </li>
-                <li>
-                    <a href="#" >Control de Stock</a>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Actualizar Precios</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> Desde Archivo </a></li>
+                        <li> <a href="#"> Por Articulo </a></li>
+                    </ul>
                 </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Ver Articulos</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
+                </li>              
 
               <li class="nav-header"><a href="/providers/manager"><h4>Proveedores</h4></a></li>
                 <li>

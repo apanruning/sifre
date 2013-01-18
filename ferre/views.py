@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from models import Proveedor, Articulo, CatalogoProveedor
-from forms import ProveedorForm
+from models import Proveedor, Articulo, CatalogoProveedor, ArticuloFerreteriaPublico
+from forms import ProveedorForm, CatalogoProveedorForm
 import datetime
 
 def home(request):
@@ -81,4 +81,37 @@ def article_provider(request, id):
         
 
 #### FIN PROVEEDOR ####
+
+#### INICIO ARTICULO ####
+
+def articles_manager(request):
+    now = datetime.datetime.now()
+    articles = Articulo.objects.all().order_by('descripcion')
+    return render(
+		request,
+		'manager_articulos.html',
+		{
+        'articles':articles,
+        'current_time':now,
+        }
+	)
+
+def article_new_provider(request):
+    if request.method == "POST":
+        form = CatalogoProveedorForm(request.POST)
+        if form.is_valid():
+            obj = form.save()
+            return redirect("/providers/new")
+    form = CatalogoProveedorForm()
+    return render(
+        request,
+        'catalogoproveedor_nuevo.html',
+        {
+            'form':form,   
+            'current_time':datetime.datetime.now(),  
+        }
+    )
     
+
+
+

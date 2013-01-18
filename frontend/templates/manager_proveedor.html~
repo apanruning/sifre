@@ -1,4 +1,7 @@
 {% extends 'index.html' %}
+          {% block title %}
+            ADMIN DE PROVEEDORES
+          {% endblock %}
           {% block sidebar-nav %}
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -21,6 +24,34 @@
                 </li>              
             </ul>
           </div><!--/.well -->
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="/articles/manager"><h4>Articulos</h4></a></li>
+                <li>
+                    <a href="#" >Nuevo </a>
+                </li>
+                <li>
+                    <a href="#" >Listar </a>
+                </li>
+                <li>
+                    <a href="#" >Control de Stock</a>
+                </li>
+                <li class="nav-header"><a href=""><h4>Precios</h4></a></li>
+                <li>
+                <a href="#" >Actualizar Precios de Proveedor desde archivo </a></li>
+                <li>
+                <a href="#" >Actualizar Precio de un Articulo</a>
+                </li>
+                <li class="nav-header"><a href=""><h4>Configuracion</h4></a></li>
+                <li>
+                    <a href="#" >Margen de Ganancia</a>
+                </li>
+                <li>
+                    <a href="#" >Datos de la Firma</a>
+                </li>
+            </ul>
+          </div><!--/.well -->
+
           {% endblock %}
           {% block title-module %}
                ADMINISTRACION DE PROVEEDORES 
