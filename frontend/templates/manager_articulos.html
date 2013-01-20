@@ -1,0 +1,105 @@
+{% extends 'index.html' %}
+          {% block title%}
+            ADMIN DE ARTICULOS
+          {% endblock %}
+          {% block sidebar-nav %}
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><h4>Articulos</h4></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Nuevo Articulo</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/providers/articles/new/"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" >Listar </a>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Actualizar Precios</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> Desde Archivo </a></li>
+                        <li> <a href="#"> Por Articulo </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Ver Articulos</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
+                </li>              
+            </ul>
+          </div><!--/.well -->
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="/providers/manager"><h4>Proveedores</h4></a></li>
+                <li>
+                    <a href="/providers/new" >Nuevo </a>
+                </li>
+                <li>
+                    <a href="/providers/manager" >Listar </a>
+                </li>
+                <li>
+                    <a href="#" >Importar</a>
+                </li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Actualizar Precios</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> Desde Archivo </a></li>
+                        <li> <a href="#"> Por Articulo </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" >Ver Articulos</a>
+                </li>              
+
+                <li class="nav-header"><a href=""><h4>Precios</h4></a></li>
+                <li>
+                <a href="#" >Actualizar Precios de Proveedor desde archivo </a></li>
+                <li>
+                <a href="#" >Actualizar Precio de un Articulo</a>
+                </li>
+                <li class="nav-header"><a href=""><h4>Configuracion</h4></a></li>
+                <li>
+                    <a href="#" >Margen de Ganancia</a>
+                </li>
+                <li>
+                    <a href="#" >Datos de la Firma</a>
+                </li>
+            </ul>
+          </div><!--/.well -->
+
+          {% endblock %}
+          {% block title-module %}
+               ADMINISTRACION DE ARTICULOS 
+          {% endblock %} 
+          {% block content_dynamic %}
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+	            <thead>
+		            <tr>
+			            <th>CODIGO</th>
+			            <th>DESCRIPCION</th>
+			            <th>MARCA</th>
+			            <th>MATERIAL</th>
+			            <th>MEDIDA</th>
+			            <th>IMAGEN</th>
+		            </tr>
+	            </thead>
+	            <tbody>
+                {% for p in articles %}
+		            <tr class="{% cycle 'odd' 'even' %}">
+			            <td><a href="/providers/{{p.id}}">{{p.cod_art }}</a></td>
+			            <td>{{ p.nombre }}</td>
+			            <td>{{ p.domicilio }}</td>
+                        <td>{{ p.telefono }}</td>
+                        <td>{{ p.email }}</td>
+		            </tr>
+                {% endfor %}
+	            </tbody>
+            </table>          
+    {% endblock %}
+
+

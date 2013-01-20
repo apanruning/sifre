@@ -1,0 +1,44 @@
+{% extends 'manager_articulos.html' %}
+          {% block sidebar-nav %}
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><h4>Administrador de Articulos</h4></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Nuevo Articulo</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/providers/articles/new/"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" >Listar </a>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Actualizar Precios</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> Desde Archivo </a></li>
+                        <li> <a href="#"> Por Articulo </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Ver Articulos</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#"> De Proveedor </a></li>
+                        <li> <a href="#"> Del Comercio </a></li>
+                    </ul>
+                </li>              
+            </ul>
+          </div><!--/.well -->
+          {% endblock %}
+          {% block title-module %}
+               CATALOGOS DE PROVEEDORES
+          {% endblock %} 
+          {% block content_dynamic %}
+            <form method="POST" action="" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="guardar" />
+            </form>
+        {% endblock %}
+
+
