@@ -1,5 +1,5 @@
 from tastypie.resources import ModelResource
-from ferre.models import Ferreteria, Proveedor, ArticuloFerreteria
+from ferre.models import Ferreteria, Proveedor, Articulo
 
 class FerreteriaResource(ModelResource):
 	class Meta:
@@ -11,7 +11,7 @@ class ProveedorResource(ModelResource):
 		queryset = Proveedor.objects.all()
         resource_name = 'proveedor'
 
-class ArticuloFerreteriaResource(ModelResource):
+class ArticuloResource(ModelResource):
 	class Meta:
-		queryset = ArticuloFerreteria.objects.all()
-		resource_name = 'articulo_de_ferreteria'
+		queryset = Articulo.objects.all()
+		resource_name = 'articulo'

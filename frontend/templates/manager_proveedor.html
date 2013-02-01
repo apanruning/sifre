@@ -70,7 +70,7 @@
 	<tbody>
     {% for p in providers %}
 		<tr class="{% cycle 'odd' 'even' %}">
-			<td><a href="/providers/{{p.id}}">{{p.cod_prov }}</a></td>
+			<td><a href="/providers/{{p.cod_prov}}/">{{p.cod_prov }}</a></td>
 			<td>{{ p.nombre }}</td>
 			<td>{{ p.domicilio }}</td>
             <td>{{ p.telefono }}</td>

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib import admin
 from tastypie.api import Api
 from ferre import api
-from ferre.api import FerreteriaResource, ArticuloFerreteriaResource, ProveedorResource
+from ferre.api import FerreteriaResource, ArticuloResource, ProveedorResource
 
 
 api = Api(api_name = 'api_rest')
@@ -19,8 +19,8 @@ urlpatterns = patterns('',
     #### PROVEEDORES ####
     url(r'^providers/manager', 'ferre.views.providers_manager'),
     url(r'^providers/new', 'ferre.views.providers_new'),
-    url(r'^providers/(?P<id>\d+)/$', 'ferre.views.providers_edit'),
-    url(r'^providers/(?P<id>\d+)/articles/$', 'ferre.views.article_provider'),
+    url(r'^providers/(?P<id>\w+)/$', 'ferre.views.providers_edit'),
+    url(r'^providers/(?P<id>\w+)/articles/$', 'ferre.views.article_provider'),
     url(r'^providers/articles/new/$', 'ferre.views.article_new_provider'),
     #### FIN PROVEEDORES ####
 
