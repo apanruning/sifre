@@ -1,6 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from models import Proveedor, Articulo, CatalogoProveedor
+from django.shortcuts import render, redirect, get_object_or_404, \
+    render_to_response
+from django.template.context import RequestContext
+from ferre.search import get_query
 from forms import ProveedorForm, CatalogoProveedorForm
+from models import Proveedor, Articulo, CatalogoProveedor
 import datetime
 
 def home(request):
@@ -112,6 +115,18 @@ def article_new_provider(request):
         }
     )
     
+### view for search
+    
+def provider_search(request):
+    query_string = ''
+    found_entries = None
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+        
+        entry_query = get_query(query_string, ['nombre', 'domicilio','telefono','email'])
+        
+        found_entries = Proveedor.objects.filter(entry_query).order_by('nombre')
 
-
-
+    return render_to_response('search_results.html',
+                          { 'query_string': query_string, 'found_entries': found_entries },
+                          context_instance=RequestContext(request))
