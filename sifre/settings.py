@@ -118,6 +118,10 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'tastypie',
     'sifre',
+    'articulo',
+    'catalogo_proveedor',
+    'stock',
+    'precios',
     'ferre',
     'frontend',
 )
